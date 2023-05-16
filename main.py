@@ -7,6 +7,8 @@ import openai
 img_file = "static/roomsq2.png"
 img = Image.open(img_file)
 
+st.header("Room Editor")
+
 with st.sidebar:
     openai.api_key = st.text_input("Enter your OpenAI API key here")
 
@@ -18,8 +20,6 @@ aspect_dict = {
     "2:3": (2, 3),
     "Free": None
 }
-
-st.write(img.size)
 
 aspect_ratio = aspect_dict[aspect_choice]
 
