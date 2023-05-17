@@ -4,7 +4,7 @@ from streamlit_cropper import st_cropper
 import os
 import openai
 
-img_file = "static/roomsq2.png"
+img_file = "static/room2sq.png"
 img = Image.open(img_file)
 
 st.header("Room Editor")
@@ -41,7 +41,7 @@ def mask_image(img, cropped_img):
 
 def genereate_new_img(im, prompt):
     if text:
-        response = openai.Image.create_edit(image=open("static/roomsq2.png", "rb"), mask=open("static/mask.png", "rb"), prompt=prompt, n=2, size="512x512")
+        response = openai.Image.create_edit(image=open("static/room2sq.png", "rb"), mask=open("static/mask.png", "rb"), prompt=prompt, n=2, size="512x512")
         results = response.to_dict()["data"]
         st.image([results[0]['url'], results[1]['url']])
         return results
